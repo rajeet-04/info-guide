@@ -1,0 +1,148 @@
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #d9d9d9;
+    --primary-color: #f58220; /* Cloudflare Orange */
+    --box-bg: #2d2d2d;
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.main-wrapper {
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.t-center {
+    text-align: left;
+}
+
+.verify-text {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.verifying-text {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.cf-browser-verification {
+    background-color: var(--box-bg);
+    border: 1px solid #444;
+    padding: 1.5rem;
+    border-radius: 4px; /* Slightly rough like CF */
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    min-width: 300px;
+    position: relative;
+    /* Mimic the specific layout */
+}
+
+#cf-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Spinner Bubbles */
+#cf-bubbles {
+    display: inline-flex;
+    margin-right: 15px;
+}
+
+.bubbles {
+    width: 8px;
+    height: 8px;
+    background: #0f0; /* Greenish/White loading spinner */
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: flash 1.4s infinite ease-in-out both;
+    background-color: #555;
+    background-color: #4c4c4c;
+}
+
+/* Specific green spinner look */
+.bubbles {
+    background-color: #4CAF50;
+    width: 6px;
+    height: 6px;
+}
+
+.bubbles:nth-child(1) { animation-delay: -0.32s; }
+.bubbles:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes flash {
+    0%, 80%, 100% { transform: scale(0); opacity: 0.5; } 
+    40% { transform: scale(1); opacity: 1; }
+}
+
+#cf-spinner-text {
+    font-size: 1rem;
+    font-weight: 500;
+    flex-grow: 1;
+}
+
+.cf-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 0.7rem;
+    color: #999;
+}
+
+.cf-logo-text {
+    font-weight: bold;
+    color: #fff;
+    font-size: 0.6rem;
+    margin-bottom: 2px;
+}
+
+.cf-logo::before {
+    content: ''; 
+    /* Cloud icon simplified */
+    display: inline-block;
+    width: 20px;
+    height: 10px;
+    /* Simplified cloud shape logic or remove for simplicity/safety */
+    background: var(--primary-color);
+    /* For now just text is safer */
+}
+
+.cf-terms {
+    font-size: 0.6rem;
+}
+
+.footer {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #888;
+}

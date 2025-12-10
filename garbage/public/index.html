@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just a moment...</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+            <!-- This would dynamically be the domain in a real scenario -->
+            <h1 id="domain-title">Loading...</h1>
+        </div>
+        
+        <div class="content t-center">
+            <h2 class="verify-text">Verifying you are human. This may take a few seconds.</h2>
+            <div class="verifying-text">
+                <p id="dynamic-host"> </p>
+                <p> needs to review the security of your connection before proceeding.</p>
+            </div>
+            
+            <div class="cf-browser-verification cf-im-under-attack">
+                <div id="cf-content">
+                    <div id="cf-bubbles">
+                        <div class="bubbles"></div>
+                        <div class="bubbles"></div>
+                        <div class="bubbles"></div>
+                    </div>
+                    <span id="cf-spinner-text">Verifying...</span>
+                    
+                    <div class="cf-logo">
+                         <span class="cf-logo-text">MEEKFLARE</span>
+                         <span class="cf-terms">Privacy &middot; Terms</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer">
+           <div class="ray-id">Ray ID: <span id="ray-id"></span></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

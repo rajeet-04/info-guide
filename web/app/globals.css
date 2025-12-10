@@ -1,0 +1,151 @@
+:root {
+  --primary-color: #3b8af3;
+  /* Meek BLUE */
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+  --card-bg: #2d2d2d;
+  --border-color: #444;
+  --box-bg: #2d2d2d;
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* --- Cloudflare Mimic Styles --- */
+.cf-browser-verification {
+  background-color: var(--box-bg);
+  border: 1px solid #444;
+  padding: 1.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  min-width: 300px;
+  position: relative;
+  /* Mimic the specific layout */
+}
+
+/* --- Spinner --- */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Admin Dashboard Styles --- */
+h1,
+h2,
+h3 {
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  background: #333;
+  border: 1px solid #555;
+  color: #fff;
+  border-radius: 4px;
+}
+
+button {
+  padding: 8px 16px;
+  background: var(--primary-color);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #444;
+}
+
+th {
+  color: #888;
+  font-weight: 500;
+}
+
+td {
+  color: #eee;
+}
+
+/* Action Buttons */
+.btn-action {
+  padding: 4px 8px;
+  margin-left: 5px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: 1px solid #555;
+  background: #333;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.btn-copy:hover {
+  background: #444;
+}
+
+.btn-view:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
