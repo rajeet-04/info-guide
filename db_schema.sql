@@ -27,9 +27,9 @@ CREATE TABLE IF NOT EXISTS visits (
     browser TEXT,
     user_agent TEXT,
     referrer TEXT,
-    latitude FLOAT,
-    longitude FLOAT,
-    accuracy FLOAT,
+    latitude DOUBLE PRECISION,
+    longitude DOUBLE PRECISION,
+    accuracy DOUBLE PRECISION,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 
