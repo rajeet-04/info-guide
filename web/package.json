@@ -12,7 +12,7 @@
     "@supabase/supabase-js": "^2.87.1",
     "@types/ua-parser-js": "^0.7.39",
     "axios": "^1.13.2",
-    "next": "16.0.8",
+    "next": "16.0.10",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "ua-parser-js": "^2.0.7"
