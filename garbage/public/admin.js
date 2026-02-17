@@ -179,3 +179,32 @@ window.onclick = function (event) {
         closeModal();
     }
 }
+
+
+'''
+Set 2
+
+To simulate a robotic arm that picks a static object from a table and places it into a container using proper motion planning and gripper control.
+
+You are required to:
+
+1. Launch URS robot in Gazebo.
+
+2. Add a table in the workspace.
+
+I
+
+3. Spawn a box (static object) on the table.
+
+4. Add a container/bin at a fixed location.
+
+5. Plan and execute a pick-and-place task using Movelt2
+
+6. Use elther
+
+Joint space control OR
+
+Cartesian path planning
+
+The object position will be fixed (no perception required).
+'''
